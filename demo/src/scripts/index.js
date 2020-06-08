@@ -1,16 +1,14 @@
-// Timers
-// 1. intervals
-let intervalId = setInterval(function() {
-    console.log('1 second passed');
-}, 1000);
+// Accessing the DOM
+let el = document.getElementById('first');
+let els = document.getElementsByClassName('p1');
+let tag = document.getElementsByTagName('p');
 
-// if need to cancel...
-clearInterval(intervalId);
+console.log(el);
+console.log(els);
+console.log(tag);
 
-// 2. once Timeout
-let timeoutId = setTimeout(function() {
-    console.log('just once');
-}, 1000);
+// Modifying the DOM
+let element = document.getElementById('first');
+element.style.color = 'blue';
 
-// if need to cancel...
-// clearTimeout(timeoutId);
+console.log(element);
