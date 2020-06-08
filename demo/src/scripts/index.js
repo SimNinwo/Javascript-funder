@@ -1,15 +1,21 @@
-// CLASSES IN JAVASCRIPT
-class Car {
-    constructor(id) {
-        this.id = id;
+// Inheritance
+class Vehicle {
+    constructor() {
+        this.type = 'car';
     }
-    identify() { // METHOD
-        return `Car Id: ${this.id}`;
+    start() {
+        return `Starting: ${this.type}`;
     }
 }
 
-let car = new Car(123);
-console.log(car.id);
+class Car extends Vehicle {
+    constructor() {
+        super();
+    };
+    // start() {
+    //     return 'in Car start ' + super.start();
+    // }
+}
 
-car.id = 456;
-console.log(car.identify());
+let car = new Car();
+console.log(car.start());
