@@ -1,33 +1,24 @@
-// using Rest Parameters
-function sendCars(day, ...carIds) {
-    carIds.forEach(id => console.log(id));
+// Constructor functions
+function Car(id) {
+    this.carId = id;
+    this.start = function() {
+        console.log('start: ' + this.carId);
+    };
 }
 
-sendCars('Monday', 1, 2, 3);
+let vehicle = new Car(123);
 
-// Destructuring Arrays
-let carId1s = [100, 200, 300, 400, 500];
-let car1, car2, remainigCars;
+vehicle.start();
 
-[car1, car2, ...remainigCars] = carId1s;
+// JSON
+let jsonIn = `
+[
+    {"carId": 123},
+    {"carId": 456},
+    {"carId": 789}
+]`;
 
-console.log(car1, car2, remainigCars);
-
-// Destructuring objects
-let car = {
-    id: 5000,
-    style: 'convertible'
-};
-
-({ id, style } = car);
-
-console.log(id, style);
-
-// Spread Syntax
-function startCars(car1, car2, car3, ...remainingCars) {
-    console.log(car1, car2, car3, remainingCars);
-}
-
-let cars = [1, 2, 3, 4, 5, 6];
-
-startCars(...cars);
+let carIds = JSON.parse(jsonIn); // convert to objects
+console.log(carIds);
+console.log();
+console.log(JSON.stringify(carIds)); // convert to JSON format
