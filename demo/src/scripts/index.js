@@ -25,7 +25,7 @@ console.log(id, style);
 
 // Spread Syntax
 function startCars(car1, car2, car3, ...remainingCars) {
-    console.log(rest);
+    console.log(car1, car2, car3, remainingCars);
 }
 
 let cars = [1, 2, 3, 4, 5, 6];
