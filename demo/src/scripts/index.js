@@ -1,19 +1,13 @@
-// // Javascript error
-// try {
-//     // code here...
-//     let car = newCar;
-// } catch (error) {
-//     console.log('error: ', error);
-// } finally {
-//     console.log('this always executes');
-// }
+// PROMISE
+let promise = new Promise(
+    function(resolve, reject) {
+        setTimeout(resolve, 100, 'someValue');
+    }
+);
 
-// Custom error
-try {
-    // code here...
-    throw new Error('my custom error');
-} catch (error) {
-    console.log('error: ', error);
-} finally {
-    console.log('this always executes');
-}
+//console.log(promise);
+promise.then(
+    value => console.log('fulfilled: ' + value),
+    error => console.log('rejected: ' + error)
+);
+// NB: used for asynchronous calls and methods
