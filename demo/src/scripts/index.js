@@ -1,14 +1,19 @@
-// Accessing the DOM
-let el = document.getElementById('first');
-let els = document.getElementsByClassName('p1');
-let tag = document.getElementsByTagName('p');
+// // Javascript error
+// try {
+//     // code here...
+//     let car = newCar;
+// } catch (error) {
+//     console.log('error: ', error);
+// } finally {
+//     console.log('this always executes');
+// }
 
-console.log(el);
-console.log(els);
-console.log(tag);
-
-// Modifying the DOM
-let element = document.getElementById('first');
-element.style.color = 'blue';
-
-console.log(element);
+// Custom error
+try {
+    // code here...
+    throw new Error('my custom error');
+} catch (error) {
+    console.log('error: ', error);
+} finally {
+    console.log('this always executes');
+}
