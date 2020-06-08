@@ -1,21 +1,4 @@
-// Inheritance
-class Vehicle {
-    constructor() {
-        this.type = 'car';
-    }
-    start() {
-        return `Starting: ${this.type}`;
-    }
-}
+import { Car } from './models/car';
 
-class Car extends Vehicle {
-    constructor() {
-        super();
-    };
-    // start() {
-    //     return 'in Car start ' + super.start();
-    // }
-}
-
-let car = new Car();
-console.log(car.start());
+let car = new Car(123);
+console.log(car.id);
