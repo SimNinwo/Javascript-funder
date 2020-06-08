@@ -1,24 +1,32 @@
-// Constructor functions
-function Car(id) {
-    this.carId = id;
-    this.start = function() {
-        console.log('start: ' + this.carId);
-    };
-}
+// ARRAYS
+let carIds = [
+    { carId: 123, style: 'sedan' },
+    { carId: 456, style: 'convertible' },
+    { carId: 789, style: 'sedan' }
+];
 
-let vehicle = new Car(123);
+// ForEach method
+carIds.forEach(
+    car => console.log(car));
 
-vehicle.start();
+carIds.forEach(
+    (car, index) => console.log(car, index));
 
-// JSON
-let jsonIn = `
-[
-    {"carId": 123},
-    {"carId": 456},
-    {"carId": 789}
-]`;
+// Array filtering
+let convertibles = carIds.filter(
+    car => car.style === 'convertible'
+);
+console.log(convertibles);
 
-let carIds = JSON.parse(jsonIn); // convert to objects
-console.log(carIds);
-console.log();
-console.log(JSON.stringify(carIds)); // convert to JSON format
+// checks if all element in the array 
+// fulfills the conditon (true or false)
+let result = carIds.every(
+    car => car.carId > 0
+);
+console.log(result);
+
+// returns the first result that matches the condition
+let car = carIds.find(
+    car => car.carId > 500
+);
+console.log(car);
