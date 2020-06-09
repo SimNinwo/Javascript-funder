@@ -1,18 +1,24 @@
-// VALIDATING FORM-DATA
+// Posting from Javascript
+import $ from 'jquery';
+
 let form = document.getElementById('user-form');
 
 form.addEventListener("submit", event => {
     let user = form.elements['user'];
-    let userError = document.getElementById('user-error');
+    let avatarFile = form.elements['avatar-file'];
 
-    if (user.value.length < 4) {
-        userError.textContent = 'Invalid entry';
-        userError.style.color = 'red';
-        user.style.borderColor = 'red';
-        user.focus();
+    let posting = {
+        user: user.value,
+        avatarFile: avatarFile.value
+    };
 
-        event.preventDefault();
-    }
-    // prevent the browser from submitting the form
+    let promise = $.post(
+        "http://5b32a4fd82407e001413f1df.mockapi.io/api/v1/users", posting
+    );
+    promise.then(
+        data => console.log('success: ', data),
+        error => console.log('error: ', error)
+    );
 
+    event.preventDefault();
 });
