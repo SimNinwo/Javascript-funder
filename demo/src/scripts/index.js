@@ -1,16 +1,18 @@
-// USING JQUERY 'GET'
-import $ from 'jquery';
+// VALIDATING FORM-DATA
+let form = document.getElementById('user-form');
 
-let user = {
-    name: 'Mark Facebook',
-    avatar: 'mark.jpg'
-};
+form.addEventListener("submit", event => {
+    let user = form.elements['user'];
+    let userError = document.getElementById('user-error');
 
-let promise = $.post(
-    "http://5b32a4fd82407e001413f1df.mockapi.io/api/v1/users", user
-);
+    if (user.value.length < 4) {
+        userError.textContent = 'Invalid entry';
+        userError.style.color = 'red';
+        user.style.borderColor = 'red';
+        user.focus();
 
-promise.then(
-    data => console.log('data: ', data),
-    error => console.log('error: ', error)
-);
+        event.preventDefault();
+    }
+    // prevent the browser from submitting the form
+
+});
