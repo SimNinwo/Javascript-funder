@@ -1,12 +1,9 @@
-// USing XHR(XML Http Request)
-let xhttp = new XMLHttpRequest();
+// USING JQUERY 'GET'
+import $ from 'jquery';
 
-xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        console.log(this.responseText);
-    }
-};
+let promise = $.get("http://5b32a4fd82407e001413f1df.mockapi.io/api/v1/users");
 
-xhttp.open("GET", "http://5b32a4fd82407e001413f1df.mockapi.io/api/v1/users",
-    true);
-xhttp.send();
+promise.then(
+    data => console.log('success: ', data),
+    error => console.log('error: ', error)
+);
