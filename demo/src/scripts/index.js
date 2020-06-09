@@ -1,13 +1,12 @@
-// PROMISE
-let promise = new Promise(
-    function(resolve, reject) {
-        setTimeout(resolve, 100, 'someValue');
-    }
-);
+// USing XHR(XML Http Request)
+let xhttp = new XMLHttpRequest();
 
-//console.log(promise);
-promise.then(
-    value => console.log('fulfilled: ' + value),
-    error => console.log('rejected: ' + error)
-);
-// NB: used for asynchronous calls and methods
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        console.log(this.responseText);
+    }
+};
+
+xhttp.open("GET", "http://5b32a4fd82407e001413f1df.mockapi.io/api/v1/users",
+    true);
+xhttp.send();
